@@ -213,7 +213,7 @@ const Bio = () => {
                 textAlign: "center",
             }}
             >
-                Developed a budget management application "Budget Bro" using Python's tkinter for GUI, allowing users to track expenses and manage their finances effectively.
+                Developed 'Budget Bro' app in Python with tkinter GUI for expense tracking and financial management.
             </Typography>
 
             <Typography
@@ -226,7 +226,7 @@ const Bio = () => {
                 textAlign: "center",
             }}
             >
-                Integrated data visualization features using matplotlib to generate pie charts representing expense distribution, enhancing user understanding of spending habits.
+                Incorporated matplotlib for pie chart expense visualization, improving user insight into spending patterns.
             </Typography>
 
             <Typography
@@ -239,7 +239,7 @@ const Bio = () => {
                 textAlign: "center",
             }}
             >
-                Implemented dynamic updating of expense categories and total balance in real-time, providing users with immediate feedback on their financial status and expenditure.
+                Enabled real-time updates for expense categories and total balance, offering users instant financial feedback.
             </Typography>
 
             <Typography
@@ -334,7 +334,7 @@ const Bio = () => {
                 textAlign: "center",
             }}
             >
-                <span style={{ fontWeight: 600 }}>Professional Tools:</span> Github, Git, Visual Studio Code
+                <span style={{ fontWeight: 600 }}>Professional Tools:</span> Visual Studio Code, Github, Git
             </Typography>
 
         </Box>
