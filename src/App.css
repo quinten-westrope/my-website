@@ -36,3 +36,65 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* left -> right underline hover affect for main headers */
+.left-right-underline {
+  cursor: pointer;
+  position: relative;
+}
+
+.left-right-underline::before {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: black;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.left-right-underline:hover::before {
+  width: 100%;
+  left: 0;
+}
+
+
+/* button -> up underline hover affect for main headers */
+.middle-out {
+  cursor: pointer;
+  position: relative;
+}
+.middle-out:after {    
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: black;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+.middle-out:hover:after { 
+  width: 100%; 
+  left: 0; 
+}
+
+/* adding header that sticks to the top of the page */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff; 
+  z-index: 1000; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 50px;
+}
+
+.content {
+  margin-top: 50px;
+}
