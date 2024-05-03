@@ -336,6 +336,9 @@ const Bio = () => {
             >
                 <span style={{ fontWeight: 600 }}>Professional Tools:</span> Visual Studio Code, Github, Git
             </Typography>
+            <br />
+            <br />
+            <br />
 
         </Box>
 
