@@ -30,16 +30,15 @@ const Header = () => {
   return (
     <Box
       sx={{
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between",
-        padding: 2,
         position: "sticky",
         top: 0,
         zIndex: 1000,
         backgroundColor: "#fff",
-        boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)"
+        boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
+        padding: 2,
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center"
       }}
     >
       <Typography variant="h4" sx={{ fontFamily: "montserrat", color: "black", fontWeight: 550 }}>
@@ -58,58 +57,71 @@ const Header = () => {
       <Drawer
         anchor="top"
         open={drawerOpen}
-        onClose={toggleDrawer}
+        onClose={() => setDrawerOpen(false)} // Close the drawer
         BackdropProps={{ sx: { backgroundColor: 'rgba(0, 0, 0, 0.1)' } }}
         sx={{
           '& .MuiDrawer-paper': {
-            top: '77px',
-            zIndex: 999,
+            top: '0',
+            width: '100%',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            overflow: "hidden" // Hide overflow
           },
         }}
       >
-        <List>
-          <ListItem button onClick={handleLinkedClick}>
-            <ListItemIcon sx={{ color: "black" }}>
-              <LinkedInIcon />
-            </ListItemIcon>
-            <ListItemText primary="LinkedIn" primaryTypographyProps={{ color: "black" }} />
-          </ListItem>
-          <ListItem button onClick={handleEmailClick}>
-            <ListItemIcon sx={{ color: "black" }}>
-              <EmailIcon />
-            </ListItemIcon>
-            <ListItemText primary="Email" primaryTypographyProps={{ color: "black" }} />
-          </ListItem>
-          <ListItem button onClick={handleGitHubClick}>
-            <ListItemIcon sx={{ color: "black" }}>
-              <GitHubIcon />
-            </ListItemIcon>
-            <ListItemText primary="GitHub" primaryTypographyProps={{ color: "black" }} />
-          </ListItem>
-          <ListItem button onClick={handleResumeClick}>
-            <ListItemIcon sx={{ color: "black" }}>
-              <PictureAsPdfIcon />
-            </ListItemIcon>
-            <ListItemText primary="Resume" primaryTypographyProps={{ color: "black" }} />
-          </ListItem>
-        </List>
+        <Box sx={{ padding: 2, width: "100%" }}>
+          {/* New hamburger menu icon for closing the drawer */}
+          <IconButton
+            onClick={toggleDrawer}
+            sx={{ position: "absolute", top: "16px", right: "30px", color: "black", zIndex: 1001 }}
+          >
+            <MenuIcon />
+          </IconButton>
+
+          <List>
+            <ListItem button onClick={handleLinkedClick} sx={{ marginTop: "32px" }}>
+              <ListItemIcon>
+                <LinkedInIcon style={{ color: "black" }} />
+              </ListItemIcon>
+              <ListItemText primary="LinkedIn" sx={{ color: "black" }} />
+            </ListItem>
+            <ListItem button onClick={handleEmailClick} sx={{ marginTop: "8px" }}>
+              <ListItemIcon>
+                <EmailIcon style={{ color: "black" }} />
+              </ListItemIcon>
+              <ListItemText primary="Email" sx={{ color: "black" }} />
+            </ListItem>
+            <ListItem button onClick={handleGitHubClick} sx={{ marginTop: "8px" }}>
+              <ListItemIcon>
+                <GitHubIcon style={{ color: "black" }} />
+              </ListItemIcon>
+              <ListItemText primary="GitHub" sx={{ color: "black" }} />
+            </ListItem>
+            <ListItem button onClick={handleResumeClick} sx={{ marginTop: "8px" }}>
+              <ListItemIcon>
+                <PictureAsPdfIcon style={{ color: "black" }} />
+              </ListItemIcon>
+              <ListItemText primary="Resume" sx={{ color: "black" }} />
+            </ListItem>
+          </List>
+        </Box>
       </Drawer>
 
       {/* Icons */}
       <Box
         sx={{
-          display: { xs: 'none', md: 'flex' },
-          marginLeft: "auto",
+          display: { xs: 'none', md: 'flex' }
         }}
       >
         <Tooltip title="LinkedIn">
-          <Button onClick={handleLinkedClick} style={{ color: "black" }}>
+          <Button onClick={handleLinkedClick} style={{ color: "black"}}>
             <LinkedInIcon fontSize="large" />
           </Button>
         </Tooltip>
 
         <Tooltip title="Email">
-          <Box sx={{ marginLeft: 2 }}>
+          <Box sx={{ marginLeft: 2}}>
             <Button onClick={handleEmailClick} style={{ color: "black" }}>
               <EmailIcon fontSize="large" />
             </Button>
@@ -117,7 +129,7 @@ const Header = () => {
         </Tooltip>
 
         <Tooltip title="GitHub">
-          <Box sx={{ marginLeft: 2 }}>
+          <Box sx={{ marginLeft: 2}}>
             <Button onClick={handleGitHubClick} style={{ color: "black" }}>
               <GitHubIcon fontSize="large" />
             </Button>
@@ -125,14 +137,13 @@ const Header = () => {
         </Tooltip>
 
         <Tooltip title="Resume">
-          <Box sx={{ marginLeft: 2 }}>
+          <Box sx={{ marginLeft: 2}}>
             <Button onClick={handleResumeClick} style={{ color: "black" }}>
               <PictureAsPdfIcon fontSize="large" />
             </Button>
           </Box>
         </Tooltip>
       </Box>
-
     </Box>
   );
 };

@@ -38,35 +38,13 @@
 }
 
 
-/* left -> right underline hover affect for main headers */
-.left-right-underline {
-  cursor: pointer;
-  position: relative;
-}
-
-.left-right-underline::before {
-  content: '';
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  bottom: -2px;
-  left: 0;
-  background-color: black;
-  transition: width 0.3s ease, left 0.3s ease;
-}
-
-.left-right-underline:hover::before {
-  width: 100%;
-  left: 0;
-}
-
-
-/* button -> up underline hover affect for main headers */
+/* button -> up underline affect for main headers - not working proper though with scroll positioning - will fix later*/
 .middle-out {
   cursor: pointer;
   position: relative;
 }
-.middle-out:after {    
+
+.middle-out::after {    
   background: none repeat scroll 0 0 transparent;
   bottom: 0;
   content: "";
@@ -78,10 +56,14 @@
   transition: width 0.3s ease 0s, left 0.3s ease 0s;
   width: 0;
 }
-.middle-out:hover:after { 
+
+.middle-out.middle-out-active::after { 
   width: 100%; 
   left: 0; 
 }
+
+
+
 
 /* adding header that sticks to the top of the page */
 .header {
