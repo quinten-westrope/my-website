@@ -1,7 +1,7 @@
-// Bio.jsx
 import * as React from "react";
 import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
+import CopyrightIcon from '@mui/icons-material/Copyright';
 
 const Bio = () => {
   const [activeSection, setActiveSection] = React.useState(null);
@@ -139,7 +139,7 @@ const Bio = () => {
                 textAlign: "center",
             }}
         >
-                I am a member of the KU Association for Computing Machinery Club.
+                I am a member of the KU Association for Computing Machinery Club and the Delta Tau Delta Fraternity.
       </Typography>
 
       <Typography
@@ -359,7 +359,7 @@ const Bio = () => {
                 textAlign: "center",
             }}
         >
-            <span style={{ fontWeight: 600 }}>Languages:</span> Python, JavaScript, HTML, CSS
+            <span style={{ fontWeight: 600 }}>Languages:</span> Python, JavaScript(NodeJS ReactJS), HTML, CSS
         </Typography>
 
         <Typography
@@ -373,7 +373,7 @@ const Bio = () => {
             }}
         >
             <span style={{ fontWeight: 600 }}>Professional Tools:</span> Visual Studio Code, Github, Git
-      </Typography>
+        </Typography>
       <br />
       <br />
       <br />
@@ -382,6 +382,14 @@ const Bio = () => {
       <br />
       <br />
       <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", color: "black", fontFamily: "playfair display" }}>
+        <CopyrightIcon style={{ marginRight: "5px", verticalAlign: "middle"}} fontSize="small" />
+        <span style={{ verticalAlign: "middle", fontWeight: 300}}>2024 Quinn Westrope</span>
+      </div>
       <br />
       <br />
       <br />

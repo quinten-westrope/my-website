@@ -6,6 +6,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
+import CloseIcon from '@mui/icons-material/Close';
 
 const Header = () => {
   const handleLinkedClick = () => {
@@ -48,7 +49,8 @@ const Header = () => {
       {/* Hamburger menu icon */}
       <IconButton
         onClick={toggleDrawer}
-        sx={{ display: { xs: 'block', md: 'none' }, color: "black"}}
+        sx={{ display: { xs: 'block', md: 'none' }, color: "black", right: "20px"}}
+        
       >
         <MenuIcon />
       </IconButton>
@@ -71,12 +73,12 @@ const Header = () => {
         }}
       >
         <Box sx={{ padding: 2, width: "100%" }}>
-          {/* New hamburger menu icon for closing the drawer */}
+          {/* close menu icon for closing the drawer */}
           <IconButton
             onClick={toggleDrawer}
-            sx={{ position: "absolute", top: "16px", right: "30px", color: "black", zIndex: 1001 }}
+            sx={{ position: "absolute", top: "16px", right: "50px", color: "black", zIndex: 1001 }}
           >
-            <MenuIcon />
+            <CloseIcon/>
           </IconButton>
 
           <List>
