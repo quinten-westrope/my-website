@@ -49,13 +49,13 @@ const Header = () => {
       {/* Hamburger menu icon */}
       <IconButton
         onClick={toggleDrawer}
-        sx={{ display: { xs: 'block', md: 'none' }, color: "black", right: "20px"}}
+        sx={{ display: { xs: 'block', md: 'none' }, color: "black", right: "10px", top: "4px"}}
         
       >
         <MenuIcon />
       </IconButton>
 
-      {/* Drawer for mobile */}
+      {/* Drawer for decreased window width */}
       <Drawer
         anchor="top"
         open={drawerOpen}
@@ -73,16 +73,18 @@ const Header = () => {
         }}
       >
         <Box sx={{ padding: 2, width: "100%" }}>
+          
           {/* close menu icon for closing the drawer */}
           <IconButton
             onClick={toggleDrawer}
-            sx={{ position: "absolute", top: "16px", right: "50px", color: "black", zIndex: 1001 }}
+            sx={{ position: "absolute", top: "20px", right: "40px", color: "black", zIndex: 1001 }}
           >
             <CloseIcon/>
           </IconButton>
 
+          {/* List of icons in the drop down menu */}
           <List>
-            <ListItem button onClick={handleLinkedClick} sx={{ marginTop: "32px" }}>
+            <ListItem button onClick={handleLinkedClick} sx={{ marginTop: "40px" }}>
               <ListItemIcon>
                 <LinkedInIcon style={{ color: "black" }} />
               </ListItemIcon>
