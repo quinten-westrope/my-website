@@ -80,3 +80,9 @@
 .content {
   margin-top: 50px;
 }
+
+/* removing side scroll bar */
+body::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar width */
+  background: transparent; /* Make scrollbar transparent */
+}

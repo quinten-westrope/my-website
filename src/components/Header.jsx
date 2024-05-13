@@ -39,7 +39,7 @@ const Header = () => {
         padding: 2,
         display: "flex",
         justifyContent: "space-between",
-        alignItems: "center"
+        alignItems: "center",
       }}
     >
       <Typography variant="h4" sx={{ fontFamily: "montserrat", color: "black", fontWeight: 550 }}>
@@ -49,7 +49,7 @@ const Header = () => {
       {/* Hamburger menu icon */}
       <IconButton
         onClick={toggleDrawer}
-        sx={{ display: { xs: 'block', md: 'none' }, color: "black", right: "10px", top: "4px"}}
+        sx={{ display: { xs: 'block', sm: 'none' }, color: "black", right: "10px", top: "4px"}}
         
       >
         <MenuIcon />
@@ -63,7 +63,7 @@ const Header = () => {
         BackdropProps={{ sx: { backgroundColor: 'rgba(0, 0, 0, 0.1)' } }}
         sx={{
           '& .MuiDrawer-paper': {
-            top: '0',
+            top: '0px',
             width: '100%',
             display: "flex",
             flexDirection: "column",
@@ -77,7 +77,7 @@ const Header = () => {
           {/* close menu icon for closing the drawer */}
           <IconButton
             onClick={toggleDrawer}
-            sx={{ position: "absolute", top: "20px", right: "40px", color: "black", zIndex: 1001 }}
+            sx={{ position: "absolute", top: "20px", right: "26.5px", color: "black", zIndex: 1001 }}
           >
             <CloseIcon/>
           </IconButton>
@@ -115,7 +115,7 @@ const Header = () => {
       {/* Icons */}
       <Box
         sx={{
-          display: { xs: 'none', md: 'flex' }
+          display: { xs: 'none', sm: 'flex' }
         }}
       >
         <Tooltip title="LinkedIn">

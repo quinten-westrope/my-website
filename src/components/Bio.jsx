@@ -38,7 +38,7 @@ const Bio = () => {
   return (
     <Box
       sx={{
-        "&.MuiBox-root": { display: "flex", flexDirection: "column" }
+        "&.MuiBox-root": { display: "flex", flexDirection: "column"}
       }}
     >
       <Typography
