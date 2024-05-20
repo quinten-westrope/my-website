@@ -1,9 +1,9 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
-import headshot from './headshot.jpeg';
+import logo from './ku.jpg';
 
-const MediaCard = () => {
+const KuLogo = () => {
     return (
         
         <Box sx={{ }}
@@ -12,7 +12,7 @@ const MediaCard = () => {
             sx={{
             "&.MuiBox-root": { display: "flex", flexDirection: "column" , padding: 2}}}>
                 <Avatar 
-                src={headshot} 
+                src={logo} 
                 sx={{ 
                     width: 150, 
                     height: 150, 
@@ -25,4 +25,4 @@ const MediaCard = () => {
 );
     };
 
-export default MediaCard;
+export default KuLogo;

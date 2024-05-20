@@ -1,15 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
 import MediaCard from './components/MediaCard';
 import Bio from './components/Bio';
-import Header from './components/Header';
+import ActionAreaCard from './components/cards';
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <MediaCard />
-      <Bio />
+      <ActionAreaCard />
+      
     </div>
   );
 }

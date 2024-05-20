@@ -41,63 +41,7 @@ const Bio = () => {
         "&.MuiBox-root": { display: "flex", flexDirection: "column"}
       }}
     >
-      <Typography
-            id="about-me-section"
-            variant="h4"
-            sx={{
-                fontFamily: "montserrat",
-                fontWeight: 600,
-                margin: 1,
-                color: "black",
-                textAlign: "center",
-                position: "relative",
-                display: "inline-block",
-                padding: 2,
-                textDecoration: activeSection === "about-me" ? "underline" : "none"
-            }}
-        >
-            <span className="middle-out">About Me</span>
-      </Typography>
-
-      <Typography
-            variant="h6"
-            sx={{
-                fontFamily: "playfair display",
-                fontWeight: 300,
-                margin: (1, 0),
-                color: "black",
-                textAlign: "center",
-            }}
-        >
-                Hey, I'm Quinn.
-      </Typography>
-
-      <Typography
-            variant="h6"
-            sx={{
-                fontFamily: "playfair display",
-                fontWeight: 300,
-                margin: (1, 0),
-                color: "black",
-                textAlign: "center",
-            }}
-        >
-                I am an incoming Product Support specialist intern at Garmin for their golf division.
-      </Typography>
-
-      <Typography
-            variant="h6"
-            sx={{
-                fontFamily: "playfair display",
-                fontWeight: 300,
-                margin: (1, 0),
-                color: "black",
-                textAlign: "center",
-            }}
-        >
-                I am passionate about technology and enjoy learning new things in my free time.
-      </Typography>
-
+    
       <Typography
             id="education-section"
             variant="h4"
@@ -183,6 +127,58 @@ const Bio = () => {
                 textAlign: "center",
             }}
         >
+                BudgetBro
+      </Typography>
+
+      <Typography
+            variant="h6"
+            sx={{
+                fontFamily: "playfair display",
+                fontWeight: 300,
+                margin: (1, 0),
+                color: "black",
+                textAlign: "center",
+            }}
+        >
+                Developed 'Budget Bro' app in Python with tkinter GUI for expense tracking and financial management.
+      </Typography>
+
+      <Typography
+            variant="h6"
+            sx={{
+                fontFamily: "playfair display",
+                fontWeight: 300,
+                margin: (1, 0),
+                color: "black",
+                textAlign: "center",
+            }}
+        >
+                Incorporated matplotlib for pie chart expense visualization, improving user insight into spending patterns.
+      </Typography>
+
+      <Typography
+            variant="h6"
+            sx={{
+                fontFamily: "playfair display",
+                fontWeight: 300,
+                margin: (1, 0),
+                color: "black",
+                textAlign: "center",
+            }}
+        >
+                Enabled real-time updates for expense categories and total balance, offering users instant financial feedback.
+        </Typography>
+
+        <Typography
+            variant="h5"
+            sx={{
+                fontFamily: "playfair display",
+                fontWeight: 550,
+                color: "black",
+                margin: (1, 0),
+                textAlign: "center",
+            }}
+        >
                 Real-Time Typing Evaluator
       </Typography>
 
@@ -224,58 +220,6 @@ const Bio = () => {
         >
                 Utilized multithreading for optimal responsiveness and smooth user interactions.
       </Typography>
-
-      <Typography
-            variant="h5"
-            sx={{
-                fontFamily: "playfair display",
-                fontWeight: 550,
-                color: "black",
-                margin: (1, 0),
-                textAlign: "center",
-            }}
-        >
-                BudgetBro App
-      </Typography>
-
-      <Typography
-            variant="h6"
-            sx={{
-                fontFamily: "playfair display",
-                fontWeight: 300,
-                margin: (1, 0),
-                color: "black",
-                textAlign: "center",
-            }}
-        >
-                Developed 'Budget Bro' app in Python with tkinter GUI for expense tracking and financial management.
-      </Typography>
-
-      <Typography
-            variant="h6"
-            sx={{
-                fontFamily: "playfair display",
-                fontWeight: 300,
-                margin: (1, 0),
-                color: "black",
-                textAlign: "center",
-            }}
-        >
-                Incorporated matplotlib for pie chart expense visualization, improving user insight into spending patterns.
-      </Typography>
-
-      <Typography
-            variant="h6"
-            sx={{
-                fontFamily: "playfair display",
-                fontWeight: 300,
-                margin: (1, 0),
-                color: "black",
-                textAlign: "center",
-            }}
-        >
-                Enabled real-time updates for expense categories and total balance, offering users instant financial feedback.
-        </Typography>
 
         <Typography
             variant="h5"
