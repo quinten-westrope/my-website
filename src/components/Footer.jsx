@@ -1,85 +1,181 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, Button, Tooltip } from '@mui/material';
 import CopyrightIcon from '@mui/icons-material/Copyright';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
-import { IconButton, Drawer, List, ListItem, ListItemIcon, ListItemText, Button, Tooltip, Modal } from "@mui/material";
 import EmailIcon from '@mui/icons-material/Email';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-
-
+import { useTheme } from '@mui/material/styles';
 
 const Footer = () => {
-  
-const handleLinkedClick = () => {
-    window.location.href = "https://www.linkedin.com/in/quinten-westrope-q248";
-};
-const handleEmailClick = () => {
-    window.location.href = "mailto:quinnwestrope@ku.edu";
-};
-const handlePhoneClick = () => {
-    window.location.href = "tel:913-260-1614";
-};
 
-  return (
-    <Box
-      sx={{
-        marginTop: 25,
-        backgroundColor: '#000', // Black background color
-        color: '#fff', // White text color (adjust as needed)
-        minHeight: '90vh', // Full viewport height
-        padding: '50px', // Adjust padding as needed
-        position: 'relative', // Relative positioning for the footer
-      }}
-    >
-      <Typography variant="h4" gutterBottom textAlign={'center'} fontFamily={'Sans-serif'} fontSize={'2.5rem'} fontWeight={550}>
-        Contact Me
-      </Typography>
+    const handleLinkedClick = () => {
+        window.location.href = "https://www.linkedin.com/in/quinten-westrope-q248";
+    };
+    const handleEmailClick = () => {
+        window.location.href = "mailto:quinnwestrope@ku.edu";
+    };
+    const handlePhoneClick = () => {
+        window.location.href = "tel:913-260-1614";
+    };
+
+    const theme = useTheme();
+
+    return (
+        <Box
+            sx={{
+                marginTop: 25,
+                backgroundColor: '#000',
+                color: '#fff',
+                minHeight: '90vh',
+                padding: '50px',
+                position: 'relative',
+            }}
+        >
+            <Typography sx={{
+                variant: "h4",
+                gutterBottom: true,
+                textAlign: 'center',
+                fontFamily: 'Sans-serif',
+                fontSize: '4rem',
+                fontWeight: 550,
+                paddingTop: 6,
+                [theme.breakpoints.down('md')]: {
+                    fontSize: '4rem'
+                },
+                [theme.breakpoints.down('sm')]: {
+                    fontSize: '3rem'
+                },
+            }}>
+                Contact Me
+            </Typography>
 
             <Box
                 sx={{
-                display: 'flex',
-                justifyContent: 'center',
-                flexDirection: 'row',
-                marginTop: 4,
-                alignItems: 'center',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    flexDirection: 'row',
+                    paddingTop: 6,
                 }}
             >
+                <Box sx={{ display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                          marginRight: 8,
+                          [theme.breakpoints.down('md')]: {
+                            marginRight: 3.5
+                          },
+                          [theme.breakpoints.down('sm')]: {
+                            marginRight: 1.5
+                          },
 
-                <Tooltip title="Mobile">
-                <Box sx={{}}>
-                    <Button className='icon' onClick={handlePhoneClick} style={{ color: "white" }}>
-                    <LocalPhoneIcon fontSize="large" />
-                    </Button>
+                          }}>
+                    
+                        <Button className='icon' onClick={handlePhoneClick} style={{ color: "white" }}>
+                            <LocalPhoneIcon sx={{ fontSize: 50 }} />
+                        </Button>
+                    
+                    <Typography sx={{ color: 'white',
+                                     marginTop: 1,
+                                     fontWeight: 600, 
+                                     fontSize: 18, 
+                                     fontStyle: 'Sans-serif',
+                                     [theme.breakpoints.down('md')]: {
+                                      fontSize: 16
+                                    },
+                                    [theme.breakpoints.down('sm')]: {
+                                      fontSize: 14
+                                    },
+                                     }}>Call Me</Typography>
                 </Box>
-                </Tooltip>
 
-                <Tooltip title="Email">
-                <Box sx={{}}>
-                    <Button className='icon' onClick={handleEmailClick} style={{ color: "white" }}>
-                    <EmailIcon fontSize="large" />
-                    </Button>
+                <Box sx={{ display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                          marginLeft: 13,
+                          marginRight: 13,
+                          [theme.breakpoints.down('md')]: {
+                            marginLeft: 5,
+                            marginRight: 5
+                          },
+                        [theme.breakpoints.down('sm')]: {
+                            marginLeft: 4,
+                            marginRight: 4
+                          },
+                          }}>
+                    
+                        <Button className='icon' onClick={handleEmailClick} style={{ color: "white" }}>
+                            <EmailIcon sx={{ fontSize: 50 }} />
+                        </Button>
+                    
+                    <Typography sx={{ color: 'white',
+                                     marginTop: 1,
+                                    textAlign: 'center',
+                                    fontSize: 18,
+                                    fontStyle: 'Sans-serif',
+                                    [theme.breakpoints.down('md')]: {
+                                      fontSize: 16
+                                    },
+                                    [theme.breakpoints.down('sm')]: {
+                                      fontSize: 14
+                                    },
+                                    }}>
+                        <span style={{fontWeight:600}}>Email Me</span><br /><span style={{fontSize: 15}}>quinnwestrope@ku.edu</span>
+                    </Typography>
                 </Box>
-                </Tooltip>
 
-                <Tooltip title="LinkedIn">
-                <Button className='icon' onClick={handleLinkedClick} style={{ color: "white"}}>
-                    <LinkedInIcon fontSize="large" />
-                    </Button>
-                </Tooltip>
-
-                
+                <Box sx={{ display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center', 
+                          marginLeft: 8,
+                          [theme.breakpoints.down('md')]: {
+                            marginLeft: 3.5
+                          },
+                          [theme.breakpoints.down('sm')]: {
+                            marginLeft: 1.5
+                          },
+                          }}>
+                    
+                        <Button className='icon' onClick={handleLinkedClick} style={{ color: "white" }}>
+                            <LinkedInIcon sx={{ fontSize: 50 }} />
+                        </Button>
+                    
+                    <Typography sx={{ color: 'white',
+                                     marginTop: 1,
+                                    textAlign: 'center',
+                                    fontSize: 18,
+                                    fontStyle: 'Sans-serif',
+                                    [theme.breakpoints.down('md')]: {
+                                        fontSize: 16
+                                    },
+                                    [theme.breakpoints.down('sm')]: {
+                                        fontSize: 14
+                                    },
+                                    }}>
+                    <span style={{fontWeight:600}}>Connect</span><br />
+                        <a className='icon' href="https://www.linkedin.com/in/quinten-westrope-q248" target="_blank" style={{textDecoration: 'none', color: '#00b3b3'}}>
+                            LinkedIn
+                        </a>
+                    </Typography>
+                </Box>
             </Box>
-            
 
-        
-
-
-      <div style={{ position: 'absolute', bottom: '70px', left: '50%', transform: 'translateX(-50%)', textAlign: 'center', width: '100%', color: 'white', fontFamily: 'playfair display' }}>
-        <CopyrightIcon style={{ marginRight: "5px", verticalAlign: "middle"}} fontSize="small" />
-        <span style={{ verticalAlign: "middle", fontWeight: 300}}>2024 Quinn Westrope</span>
-      </div>
-    </Box>
-  );
+            <Box
+                sx={{
+                    position: 'absolute',
+                    bottom: 70,
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    textAlign: 'center',
+                    width: '100%',
+                    color: 'white',
+                    fontFamily: 'playfair display',
+                }}
+            >
+                <CopyrightIcon sx={{ marginRight: .5, verticalAlign: 'middle', fontSize: 13 }} />
+                <span style={{ verticalAlign: 'middle', fontWeight: 300, fontSize: 13 }}>Copyright 2024 Quinn Westrope</span>
+            </Box>
+        </Box>
+    );
 };
 
 export default Footer;
