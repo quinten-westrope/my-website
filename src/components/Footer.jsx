@@ -52,7 +52,7 @@ const Footer = () => {
                     fontFamily: 'Sans-serif',
                     fontSize: '4rem',
                     fontWeight: 550,
-                    paddingTop: 12,
+                    paddingTop: 18,
                     color: '#fff',
                     [theme.breakpoints.down('md')]: {
                         fontSize: '4rem'
