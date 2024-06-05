@@ -117,10 +117,21 @@ const ActionAreaCard = () => {
                 marginTop: 4,
                 }}
             >
+
+                <Tooltip title="Resume">
+                <Box sx={{}}>
+                    <Button className='icon' onClick={handleResumeClick} style={{ color: "white" }}>
+                    <PictureAsPdfIcon fontSize="large" />
+                    </Button>
+                </Box>
+                </Tooltip>
+
                 <Tooltip title="LinkedIn">
+                <Box sx={{ marginLeft: 1.5}}>
                 <Button className='icon' onClick={handleLinkedClick} style={{ color: "white"}}>
                     <LinkedInIcon fontSize="large" />
                     </Button>
+                </Box>
                 </Tooltip>
 
                 <Tooltip title="Email">
@@ -139,13 +150,6 @@ const ActionAreaCard = () => {
                 </Box>
                 </Tooltip>
 
-                <Tooltip title="Resume">
-                <Box sx={{ marginLeft: 1.5}}>
-                    <Button className='icon' onClick={handleResumeClick} style={{ color: "white" }}>
-                    <PictureAsPdfIcon fontSize="large" />
-                    </Button>
-                </Box>
-                </Tooltip>
             </Box>
             
 
