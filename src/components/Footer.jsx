@@ -21,20 +21,22 @@ const Footer = () => {
     const theme = useTheme();
 
     return (
-        <Box sx={{ position: 'relative', width: '100%', minHeight: '100vh', marginTop: 13 }}>
+        <Box sx={{ position: 'relative', width: '100%', minHeight: '100vh', marginTop: 13, backgroundColor: '#2b2b2b' }}>
             {/* Background Image */}
             <Box
                 sx={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    backgroundImage: `url(${process.env.PUBLIC_URL}/footy.jpg)`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    filter: 'brightness(50%)', // Dim the background
-                    zIndex: -1,
+                    // picture option for footer
+                    
+                    // position: 'absolute',
+                    // top: 0,
+                    // left: 0,
+                    // width: '100%',
+                    // height: '100%',
+                    // backgroundImage: `url(${process.env.PUBLIC_URL}/footer.jpg)`,
+                    // backgroundSize: 'cover',
+                    // backgroundPosition: 'center',
+                    // filter: 'brightness(45%)', // Dim the background
+                    // zIndex: -1,
                 }}
             />
             
@@ -52,7 +54,7 @@ const Footer = () => {
                     fontFamily: 'Sans-serif',
                     fontSize: '4rem',
                     fontWeight: 550,
-                    paddingTop: 18,
+                    paddingTop: 15,
                     color: '#fff',
                     [theme.breakpoints.down('md')]: {
                         fontSize: '4rem'
