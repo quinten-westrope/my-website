@@ -303,7 +303,7 @@ const ActionAreaCard = () => {
 
                                     {/* Stock Dashboard Project */}
                                     <Typography variant="h6" color="black" fontFamily={'lora-regular'} textAlign={'center'} paddingBottom={2}>
-                                        <span style={{ fontWeight: 550 }}>Stock Dashboard</span>: Created a typing test application with adaptive difficulty levels for dynamic user experience.
+                                        <span style={{ fontWeight: 550 }}>Stock Dashboard</span>: Created a stock dashboard application with real-time data visualization for dynamic user experience.
                                     </Typography>
 
                                     <Box sx={{
