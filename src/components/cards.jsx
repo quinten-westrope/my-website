@@ -53,7 +53,7 @@ const ActionAreaCard = () => {
         window.location.href = "https://www.github.com/quinten-westrope";
     };
     const handleResumeClick = () => {
-        window.location.href = "https://drive.google.com/file/d/1Vg_iqloPJ4VvboFmqlynUzYyO6J18nmF/view?usp=sharing";
+        window.location.href = "https://drive.google.com/file/d/18nSw29Bd8qldMPx0BBZr2iX5qlpELHDg/view?usp=drive_link";
     };
 
     return (
@@ -203,7 +203,7 @@ const ActionAreaCard = () => {
                                         [theme.breakpoints.down('sm')]: { textAlign: 'center' },
                                     }}>
                                         <Typography variant="h6" color="black" fontFamily={'lora-regular'}>
-                                            This past summer I worked as a Product Support Specialist at <span style={{ fontWeight: 550 }}>Garmin</span> in their golf division. I'm passionate about technology and enjoy learning new things in my free time.
+                                            This past summer I worked as a Product Support Specialist at <span style={{ fontWeight: 550 }}>Garmin</span> in their golf division. I'm passionate about technology and enjoy learning new things in my free time. Some of my hobbies include golfing, playing basketball, and traveling.
                                         </Typography>
                                     </Grid>
                                 </Grid>
@@ -257,7 +257,7 @@ const ActionAreaCard = () => {
                                         [theme.breakpoints.down('sm')]: { textAlign: 'center' },
                                     }}>
                                         <Typography variant="h6" color="black" fontFamily={'lora-regular'}>
-                                            I'm a sophomore at the <span style={{ fontWeight: 550 }}>University of Kansas</span> studying Computer Science. I'm a member of Delta Tau Delta Fraternity and the KU Association for Computing Machinery Club.
+                                            I'm a sophomore at the <span style={{ fontWeight: 550 }}>University of Kansas</span> studying Computer Science. I'm also the Co-President of KU Software Engineering Club and a member of Delta Tau Delta Fraternity.
                                         </Typography>
                                     </Grid>
                                 </Grid>
