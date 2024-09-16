@@ -53,7 +53,7 @@ const ActionAreaCard = () => {
         window.location.href = "https://www.github.com/quinten-westrope";
     };
     const handleResumeClick = () => {
-        window.location.href = "https://drive.google.com/file/d/18nSw29Bd8qldMPx0BBZr2iX5qlpELHDg/view?usp=drive_link";
+        window.location.href = "https://drive.google.com/file/d/1z-TspEkAnbhNjYfGNHqeMak9RuqthxvY/view?usp=sharing";
     };
 
     return (
