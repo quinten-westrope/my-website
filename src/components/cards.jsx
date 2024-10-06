@@ -53,7 +53,7 @@ const ActionAreaCard = () => {
         window.location.href = "https://www.github.com/quinten-westrope";
     };
     const handleResumeClick = () => {
-        window.location.href = "https://drive.google.com/file/d/1z-TspEkAnbhNjYfGNHqeMak9RuqthxvY/view?usp=sharing";
+        window.location.href = "https://drive.google.com/file/d/1Hq-J8RM_6odnVDzqyQaHlO6H_21RT2sH/view?usp=drive_link";
     };
 
     return (
@@ -594,7 +594,7 @@ const ActionAreaCard = () => {
                                     </Typography>
                                     
                                             <Typography variant="h6" color="black" fontFamily={'lora-regular'} textAlign={'center'} paddingBottom={1}>
-                                                <span style={{ fontWeight: 550}}>Languages:</span> Python, JavaScript(ReactJS), HTML, CSS <br />
+                                                <span style={{ fontWeight: 550}}>Languages:</span> Python, C, JavaScript(ReactJS), HTML, CSS <br />
                                             </Typography>
 
                                             <Typography variant="h6" color="black" fontFamily={'lora-regular'} textAlign={'center'} paddingBottom={2}>
