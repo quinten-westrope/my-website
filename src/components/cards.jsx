@@ -53,7 +53,7 @@ const ActionAreaCard = () => {
         window.location.href = "https://www.github.com/quinten-westrope";
     };
     const handleResumeClick = () => {
-        window.location.href = "https://drive.google.com/file/d/1Hq-J8RM_6odnVDzqyQaHlO6H_21RT2sH/view?usp=drive_link";
+        window.location.href = "https://drive.google.com/file/d/1gMJs3KEcYcI2zpuiefEfMVya2FPtT4Bv/view?usp=sharing";
     };
 
     return (
@@ -257,7 +257,7 @@ const ActionAreaCard = () => {
                                         [theme.breakpoints.down('sm')]: { textAlign: 'center' },
                                     }}>
                                         <Typography variant="h6" color="black" fontFamily={'lora-regular'}>
-                                            I'm a sophomore at the <span style={{ fontWeight: 550 }}>University of Kansas</span> studying Computer Science. I'm also the Co-President of KU Software Engineering Club and a member of Delta Tau Delta Fraternity.
+                                            I'm a sophomore at the <span style={{ fontWeight: 550 }}>University of Kansas</span> studying Computer Science. I'm also the President & Founder of KU Tech Club and a member of Delta Tau Delta Fraternity.
                                         </Typography>
                                     </Grid>
                                 </Grid>
