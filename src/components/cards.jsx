@@ -257,7 +257,7 @@ const ActionAreaCard = () => {
                                         [theme.breakpoints.down('sm')]: { textAlign: 'center' },
                                     }}>
                                         <Typography variant="h6" color="black" fontFamily={'lora-regular'}>
-                                            I'm a sophomore at the <span style={{ fontWeight: 550 }}>University of Kansas</span> studying Computer Science. I'm also the President & Founder of KU Tech Club and a member of Delta Tau Delta Fraternity.
+                                            I'm a sophomore at the <span style={{ fontWeight: 550 }}>University of Kansas</span> studying Computer Science. I work for the University Daily Kansan as an Account Executive and I'm a member of Delta Tau Delta Fraternity.
                                         </Typography>
                                     </Grid>
                                 </Grid>
@@ -594,7 +594,7 @@ const ActionAreaCard = () => {
                                     </Typography>
                                     
                                             <Typography variant="h6" color="black" fontFamily={'lora-regular'} textAlign={'center'} paddingBottom={1}>
-                                                <span style={{ fontWeight: 550}}>Languages:</span> Python, C, JavaScript(ReactJS), HTML, CSS <br />
+                                                <span style={{ fontWeight: 550}}>Languages:</span> Python, C/C++, JavaScript(ReactJS), HTML, CSS <br />
                                             </Typography>
 
                                             <Typography variant="h6" color="black" fontFamily={'lora-regular'} textAlign={'center'} paddingBottom={2}>
