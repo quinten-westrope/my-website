@@ -203,7 +203,7 @@ const ActionAreaCard = () => {
                                         [theme.breakpoints.down('sm')]: { textAlign: 'center' },
                                     }}>
                                         <Typography variant="h6" color="black" fontFamily={'lora-regular'}>
-                                            This past summer I worked as a Product Support Specialist at <span style={{ fontWeight: 550 }}>Garmin</span> in their golf division. I'm passionate about technology and enjoy learning new things in my free time. Some of my hobbies include golfing, playing basketball, and traveling.
+                                            This past summer I worked as a Sales Engineer Intern at <span style={{ fontWeight: 550 }}>Archer IRM</span>. I'm passionate about bridging the gap between business and technology and enjoy learning new things in my free time. Some of my hobbies include golfing, playing basketball, and traveling.
                                         </Typography>
                                     </Grid>
                                 </Grid>
@@ -257,7 +257,7 @@ const ActionAreaCard = () => {
                                         [theme.breakpoints.down('sm')]: { textAlign: 'center' },
                                     }}>
                                         <Typography variant="h6" color="black" fontFamily={'lora-regular'}>
-                                            I'm a sophomore at the <span style={{ fontWeight: 550 }}>University of Kansas</span> studying Computer Science. I work for the University Daily Kansan as an Account Executive and I'm a member of Delta Tau Delta Fraternity.
+                                            I'm a Junior at the <span style={{ fontWeight: 550 }}>University of Kansas</span> studying Computer Science. I'm a member of Delta Tau Delta Fraternity where I serve as the Director of Academic Affairs. I'm also the VP of KU Professional Development Club.
                                         </Typography>
                                     </Grid>
                                 </Grid>
