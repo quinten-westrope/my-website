@@ -44,7 +44,7 @@ const ActionAreaCard = () => {
     const theme = useTheme();
 
     const handleLinkedClick = () => {
-        window.location.href = "https://www.linkedin.com/in/quinten-westrope-q248";
+        window.location.href = "https://www.linkedin.com/in/quinn-westrope";
     };
     const handleEmailClick = () => {
         window.location.href = "mailto:quinnwestrope@ku.edu";
