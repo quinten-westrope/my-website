@@ -1,620 +1,355 @@
 import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
 import Box from '@mui/material/Box';
-import MediaCard from './MediaCard';
-import { useTheme } from '@mui/material/styles';
-import { IconButton, Drawer, List, ListItem, ListItemIcon, ListItemText, Button, Tooltip, Modal } from "@mui/material";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import Typography from '@mui/material/Typography';
+import { Button } from '@mui/material';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
-import GitHubIcon from '@mui/icons-material/GitHub';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
-import Grid from '@mui/material/Grid';
-import KuLogo from './KuLogo';
-import CopyrightIcon from '@mui/icons-material/Copyright';
-import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
-import { useState } from 'react';
-import Footer from './Footer';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import WorkIcon from '@mui/icons-material/Work';
+import headshot from './headshot.jpeg';
+
+const jobs = [
+    { company: 'IBM', role: 'Sales Engineer Intern', date: 'Incoming Summer 2026', location: 'Chicago, IL' },
+    { company: 'Archer Integrated Risk Management', role: 'Sales Engineer Intern', date: 'May 2025 – Present', location: 'Overland Park, KS' },
+    { company: 'University Daily Kansan', role: 'Account Executive', date: 'Oct 2024 – Feb 2025', location: 'Lawrence, KS' },
+    { company: 'Garmin', role: 'Product Support Specialist Intern', date: 'May 2024 – Aug 2024', location: 'Olathe, KS' },
+];
+
+// Teal pulled from the Chicago skyline city lights / water reflections
+const ACCENT = '#3abfcf';
+const DOT_SIZE = 40;
+const LINE_COLOR = '#444';
+
+// Shared dark section style — keeps all sections cohesive with the hero
+const darkSection = {
+    backgroundColor: '#111',
+    color: 'white',
+};
 
 const ActionAreaCard = () => {
-    
-    const [openTyping, setOpenTyping] = useState(false); // State for Typing Evaluator modal
-    const [openBudget, setOpenBudget] = useState(false);
-
-    const handleOpenTyping = () => {
-        setOpenTyping(true);
-    };
-    
-    const handleCloseTyping = () => {
-        setOpenTyping(false);
-    };
-
-    const handleOpenBudget = () => {
-        setOpenBudget(true);
-    };
-    
-    const handleCloseBudget = () => {
-        setOpenBudget(false);
-    };
-
-    
-    const theme = useTheme();
-
-    const handleLinkedClick = () => {
-        window.location.href = "https://www.linkedin.com/in/quinn-westrope";
-    };
-    const handleEmailClick = () => {
-        window.location.href = "mailto:quinnwestrope@ku.edu";
-    };
-    const handleGitHubClick = () => {
-        window.location.href = "https://www.github.com/quinten-westrope";
-    };
-    const handleResumeClick = () => {
-        window.location.href = "https://drive.google.com/file/d/1gMJs3KEcYcI2zpuiefEfMVya2FPtT4Bv/view?usp=sharing";
-    };
+    const handleLinkedClick = () => window.open("https://www.linkedin.com/in/quinn-westrope/", "_blank");
+    const handleEmailClick = () => { window.location.href = "mailto:qwestrope1313@gmail.com"; };
+    const handleResumeClick = () => window.open(`${process.env.PUBLIC_URL}/resume.pdf`, "_blank");
+    const handlePhoneClick = () => { window.location.href = "tel:9132601614"; };
 
     return (
+        <Box sx={{ width: '100%' }}>
 
-        <Box sx={{
-            width: '100%',
-        }}>
-        
-        {/* Background */}
-        <Box sx={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            backgroundImage: `url(${process.env.PUBLIC_URL}/background.jpg)`, // Use url() function to specify the background image
-            backgroundSize: 'cover',
-            filter: 'brightness(70%)',
-        }} 
-        />
-
-
-        {/* First page container to push the first card down */}
-        <Box sx={{
-            height: '100vh',
-            position: 'relative',
-        }}>
-        
-
-
-          {/* Empty content or introduction text */}
-          <Typography variant="h2" sx={{ 
-            textAlign: 'center',
-            fontFamily: "Inter, Sans-serif",
-            fontWeight: 750,
-            color: "white",
-            justifyContent: "center",
-            flexDirection: "column",
-            display: "flex",
-            fontSize: "5.5rem",
-            marginTop: "10rem",
-            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)", // Add a subtle shadow
-            [theme.breakpoints.down('md')]: {
-                fontSize: '4rem'
-            },
-            [theme.breakpoints.down('sm')]: {
-                fontSize: '3rem'
-            },
-
-            }}>
-            Quinn Westrope
-          </Typography>
-
-
-          {/* Icons under first page text */}
-            <Box
-                sx={{
-                display: 'flex',
-                justifyContent: 'center',
-                flexDirection: 'row',
-                marginTop: 4,
-                }}
-            >
-
-                <Tooltip title="Resume">
-                <Box sx={{}}>
-                    <Button className='icon' onClick={handleResumeClick} style={{ color: "white" }}>
-                    <PictureAsPdfIcon fontSize="large" />
-                    </Button>
+            {/* ── HERO ── */}
+            <Box sx={{ position: 'relative', height: '100vh', overflow: 'hidden' }}>
+                <Box sx={{
+                    position: 'absolute', inset: 0,
+                    backgroundImage: `url(${process.env.PUBLIC_URL}/chicago.jpg)`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    filter: 'brightness(45%)',
+                }} />
+                <Box sx={{
+                    position: 'absolute',
+                    top: '38%', left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    zIndex: 1,
+                    textAlign: 'center',
+                    width: '90%',
+                }}>
+                    <Typography sx={{
+                        fontFamily: 'Inter, sans-serif',
+                        fontWeight: 750,
+                        color: 'white',
+                        fontSize: { xs: '2.8rem', sm: '4rem', md: '5.5rem' },
+                        lineHeight: 1.05,
+                        textShadow: '2px 4px 12px rgba(0,0,0,0.6)',
+                        whiteSpace: { sm: 'nowrap' },
+                    }}>
+                        Quinn Westrope
+                    </Typography>
+                    <Typography sx={{
+                        color: 'rgba(255,255,255,0.72)',
+                        fontSize: { xs: '0.95rem', md: '1.15rem' },
+                        fontFamily: 'Inter, sans-serif',
+                        mt: 2.5,
+                        letterSpacing: '0.04em',
+                        fontWeight: 300,
+                    }}>
+                        Sales Engineer
+                    </Typography>
+                    <Box sx={{ display: 'flex', gap: 1, mt: 1.5, justifyContent: 'center' }}>
+                        <Button className="icon" onClick={handleResumeClick} sx={{ color: 'white', minWidth: 0 }}>
+                            <PictureAsPdfIcon fontSize="large" />
+                        </Button>
+                        <Button className="icon" onClick={handleLinkedClick} sx={{ color: 'white', minWidth: 0 }}>
+                            <LinkedInIcon fontSize="large" />
+                        </Button>
+                        <Button className="icon" onClick={handleEmailClick} sx={{ color: 'white', minWidth: 0 }}>
+                            <EmailIcon fontSize="large" />
+                        </Button>
+                    </Box>
                 </Box>
-                </Tooltip>
-
-                <Tooltip title="LinkedIn">
-                <Box sx={{ marginLeft: 1.5}}>
-                <Button className='icon' onClick={handleLinkedClick} style={{ color: "white"}}>
-                    <LinkedInIcon fontSize="large" />
-                    </Button>
-                </Box>
-                </Tooltip>
-
-                <Tooltip title="Email">
-                <Box sx={{ marginLeft: 1.5}}>
-                    <Button className='icon' onClick={handleEmailClick} style={{ color: "white" }}>
-                    <EmailIcon fontSize="large" />
-                    </Button>
-                </Box>
-                </Tooltip>
-
-                <Tooltip title="GitHub">
-                <Box sx={{ marginLeft: 1.5}}>
-                    <Button className='icon' onClick={handleGitHubClick} style={{ color: "white" }}>
-                    <GitHubIcon fontSize="large" />
-                    </Button>
-                </Box>
-                </Tooltip>
-
             </Box>
-            
 
-        </Box>
-  
-        {/* Cards */}
-        <Box sx={{ display: 'flex', justifyContent: 'center', padding: 3, marginTop: -10 }}>
-            <Grid container spacing={3} justifyContent="center">
-                {/* Card 1 */}
-                <Grid item xs={12} md={6} sx={{ display: 'flex' }}>
-                    <Card sx={{
-                        flex: 1,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        borderRadius: 6,
-                        boxShadow: '0px 0px 0px 0px',
-                        backgroundColor: '#f0f0f0',
+            {/* ── ABOUT ── */}
+            <Box sx={{
+                ...darkSection,
+                backgroundColor: '#181818',
+                minHeight: '100vh',
+                px: { xs: 5, sm: 6, md: '10%' },
+                py: { xs: 8, md: 0 },
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxSizing: 'border-box',
+            }}>
+                <Typography sx={{
+                    fontFamily: 'Inter, sans-serif',
+                    fontSize: '0.85rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.2em',
+                    color: ACCENT,
+                    textTransform: 'uppercase',
+                    mb: 1.5,
+                }}>
+                    About
+                </Typography>
+                <Typography sx={{
+                    fontFamily: 'Inter, sans-serif',
+                    fontWeight: 700,
+                    fontSize: { xs: '1.8rem', md: '2.5rem' },
+                    color: 'white',
+                    mb: 5,
+                    textAlign: 'center',
+                }}>
+                    Let me introduce myself.
+                </Typography>
+                <Box sx={{
+                    display: 'flex',
+                    flexDirection: { xs: 'column', sm: 'row' },
+                    alignItems: { xs: 'center', sm: 'flex-start' },
+                    gap: { xs: 4, sm: 5 },
+                    maxWidth: 780,
+                    width: '100%',
+                }}>
+                    <Box sx={{
+                        width: { xs: 150, sm: 170 },
+                        height: { xs: 150, sm: 170 },
+                        borderRadius: '50%',
+                        overflow: 'hidden',
+                        border: `1.5px solid ${ACCENT}`,
+                        flexShrink: 0,
                     }}>
-                        <Box sx={{
-                            flex: 1,
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
-                            justifyContent: 'flex-start',
-                            padding: 3,
-                        }}>
-                            <CardContent sx={{ width: '100%' }}>
-                                <Typography gutterBottom variant="h4" component="div" sx={{
-                                    fontFamily: 'Sans-serif',
-                                    fontWeight: 550,
-                                    color: 'black',
-                                    textAlign: 'center',
-                                    fontSize: '2.5rem',
-                                }}>
-                                    About Me
-                                </Typography>
-                                <Grid container spacing={1} alignItems="center">
-                                    <Grid item xs={12} lg={4} sx={{
-                                        [theme.breakpoints.down('md')]: { marginTop: -1.5 },
-                                        [theme.breakpoints.down('sm')]: {
-                                            display: 'flex',
-                                            justifyContent: 'center',
-                                            transform: 'scale(.9)',
-                                            marginTop: -2.5,
-                                        },
-                                    }}>
-                                        <MediaCard />
-                                    </Grid>
-                                    <Grid item xs={12} lg={8} sx={{
-                                        [theme.breakpoints.down('md')]: { textAlign: 'center' },
-                                        [theme.breakpoints.down('sm')]: { textAlign: 'center' },
-                                    }}>
-                                        <Typography variant="h6" color="black" fontFamily={'lora-regular'}>
-                                            This past summer I worked as a Sales Engineer Intern at <span style={{ fontWeight: 550 }}>Archer IRM</span>. I'm passionate about bridging the gap between business and technology and enjoy learning new things in my free time. Some of my hobbies include golfing, playing basketball, and traveling.
-                                        </Typography>
-                                    </Grid>
-                                </Grid>
-                            </CardContent>
-                        </Box>
-                    </Card>
-                </Grid>
-
-                {/* Card 2 */}
-                <Grid item xs={12} md={6} sx={{ display: 'flex' }}>
-                    <Card sx={{
-                        flex: 1,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        borderRadius: 6,
-                        boxShadow: '0px 0px 0px 0px',
-                        backgroundColor: '#f0f0f0',
+                        <Box
+                            component="img"
+                            src={headshot}
+                            alt="Quinn Westrope"
+                            sx={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center -15px' }}
+                        />
+                    </Box>
+                    <Typography sx={{
+                        fontFamily: 'Inter, sans-serif',
+                        fontSize: { xs: '1rem', md: '1.1rem' },
+                        color: 'rgba(255,255,255,0.65)',
+                        lineHeight: 2,
+                        textAlign: { xs: 'center', sm: 'left' },
                     }}>
-                        <Box sx={{
-                            flex: 1,
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
-                            justifyContent: 'flex-start',
-                            padding: 3,
-                        }}>
-                            <CardContent sx={{ width: '100%' }}>
-                                <Typography gutterBottom variant="h4" component="div" sx={{
-                                    fontFamily: 'Sans-serif',
-                                    fontWeight: 550,
-                                    color: 'black',
-                                    textAlign: 'center',
-                                    fontSize: '2.5rem',
+                        I'm a junior at the University of Kansas studying Computer Science, with a passion for
+                        bridging the gap between technology and business. I'm heading into tech sales and have
+                        experience as a Sales Engineer working directly with clients to build solutions and drive
+                        deals forward. Outside of work, you'll find me on the golf course, playing basketball,
+                        or planning my next trip.
+                    </Typography>
+                </Box>
+            </Box>
+
+            {/* ── EXPERIENCE ── */}
+            <Box sx={{
+                ...darkSection,
+                backgroundColor: '#202020',
+                minHeight: '100vh',
+                px: { xs: 5, sm: 6, md: '10%' },
+                py: { xs: 8, md: 0 },
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxSizing: 'border-box',
+            }}>
+                <Typography sx={{
+                    fontFamily: 'Inter, sans-serif',
+                    fontWeight: 700,
+                    fontSize: { xs: '1.8rem', md: '2.5rem' },
+                    color: 'white',
+                    mb: 6,
+                    textAlign: 'center',
+                }}>
+                    Work Experience
+                </Typography>
+
+                <Box sx={{ width: '100%', maxWidth: 860 }}>
+                    {jobs.map((job, i) => {
+                        const isLast = i === jobs.length - 1;
+                        return (
+                            <Box key={job.company} sx={{ display: 'flex', alignItems: 'stretch', mb: isLast ? 0 : 0 }}>
+
+                                {/* Left: role + date (desktop only) */}
+                                <Box sx={{
+                                    display: { xs: 'none', md: 'flex' },
+                                    flex: 1,
+                                    flexDirection: 'column',
+                                    alignItems: 'flex-end',
+                                    pr: 3,
+                                    pt: '10px',
+                                    pb: isLast ? 0 : '48px',
                                 }}>
-                                    Education
-                                </Typography>
-                                <Grid container spacing={1} alignItems="center">
-                                    <Grid item xs={12} lg={4} sx={{
-                                        [theme.breakpoints.down('md')]: { marginTop: -1.5 },
-                                        [theme.breakpoints.down('sm')]: {
-                                            display: 'flex',
-                                            justifyContent: 'center',
-                                            transform: 'scale(.9)',
-                                            marginTop: -2,
-                                        },
-                                    }}>
-                                        <KuLogo />
-                                    </Grid>
-                                    <Grid item xs={12} lg={8} sx={{
-                                        [theme.breakpoints.down('md')]: { textAlign: 'center' },
-                                        [theme.breakpoints.down('sm')]: { textAlign: 'center' },
-                                    }}>
-                                        <Typography variant="h6" color="black" fontFamily={'lora-regular'}>
-                                            I'm a Junior at the <span style={{ fontWeight: 550 }}>University of Kansas</span> studying Computer Science. I'm a member of Delta Tau Delta Fraternity where I serve as the Director of Academic Affairs. I'm also the VP of KU Professional Development Club.
-                                        </Typography>
-                                    </Grid>
-                                </Grid>
-                            </CardContent>
-                        </Box>
-                    </Card>
-                </Grid>
-
-                {/* Card 3 */}
-                <Grid item xs={12} md={6} sx={{ display: 'flex' }}>
-                    <Card sx={{
-                        flex: 1,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        borderRadius: 6,
-                        boxShadow: '0px 0px 0px 0px',
-                        backgroundColor: 'white',
-                        paddingTop: 15
-                    }}>
-                        <Box sx={{
-                            flex: 1,
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
-                            justifyContent: 'flex-start',
-                            padding: 3,
-                        }}>
-                            <CardContent sx={{ width: '100%' }}>
-                                <Typography gutterBottom variant="h4" component="div" sx={{
-                                    fontFamily: 'Sans-serif',
-                                    fontWeight: 550,
-                                    color: 'black',
-                                    textAlign: 'center',
-                                    fontSize: '3rem',
-                                    paddingBottom: 2.5
-                                }}>
-                                    Projects
-                                </Typography>
-                                <Grid container spacing={1} alignItems="center">
-                                    
-
-
-
-                                    {/* Stock Dashboard Project */}
-                                    <Typography variant="h6" color="black" fontFamily={'lora-regular'} textAlign={'center'} paddingBottom={2}>
-                                        <span style={{ fontWeight: 550 }}>Stock Dashboard</span>: Created a stock dashboard application with real-time data visualization for dynamic user experience.
+                                    <Typography sx={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: '1rem', color: 'rgba(255,255,255,0.88)', textAlign: 'right' }}>
+                                        {job.role}
                                     </Typography>
+                                    <Typography sx={{ fontFamily: 'Inter, sans-serif', fontSize: '0.85rem', color: 'rgba(255,255,255,0.4)', mt: 0.5, textAlign: 'right' }}>
+                                        {job.date}
+                                    </Typography>
+                                </Box>
 
+                                {/* Center: dot + connecting line */}
+                                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flexShrink: 0, width: DOT_SIZE }}>
                                     <Box sx={{
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    width: '100%',
-                                    textDecoration: 'none',
+                                        width: DOT_SIZE, height: DOT_SIZE,
+                                        borderRadius: '50%',
+                                        backgroundColor: '#1e1e1e',
+                                        border: `1px solid #555`,
+                                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                        flexShrink: 0, zIndex: 1,
                                     }}>
-                                    <Button
-                                        variant="outlined"
-                                        endIcon={<ArrowOutwardIcon />}
-                                        sx={{
-                                            borderColor: '#000',  // Customize the border color
-                                            color: '#000',        // Customize the text color
-                                            borderRadius: 4,      // Rounded corners
-                                            padding: '10px 20px', // Padding for the button
-                                            textTransform: 'none',// Keep text casing as is
-                                            borderWidth: 2,       // Border width
-                                            '&:hover': {
-                                                borderWidth: 2,
-                                                borderColor: '#000',
-                                                backgroundColor: 'rgba(0, 0, 0, 0.1)', // Slight background color on hover
-                                            },
-                                        }}
-                                        onClick={handleOpenTyping}
-                                        >
-                                        Learn More
-                                    </Button>
+                                        <WorkIcon sx={{ color: ACCENT, fontSize: 18 }} />
                                     </Box>
-                                    
-                                    {/* Modal for Typing Evaluator Project */}
-                                    <Modal
-                                        open={openTyping}
-                                        onClose={handleCloseTyping} // Close the modal when the close button is clicked
-                                        aria-labelledby="modal-modal-title"
-                                        aria-describedby="modal-modal-description"
-                                    >
-                                        <Box sx={{
-                                            position: 'absolute',
-                                            top: '50%',
-                                            left: '50%',
-                                            transform: 'translate(-50%, -50%)',
-                                            width: { xs: '85%', sm: '75%', md: '70%', lg: '80%' },
-                                            maxHeight: '80vh',
-                                            overflowY: 'auto',
-                                            bgcolor: 'background.paper',
-                                            border: '2px solid #000',
-                                            boxShadow: 24,
-                                            p: { xs: 2, sm: 5, md: 5 },
-                                            pb: {xs: 5},
-                                            pt: {xs: 5},
-                                        }}>
+                                    {!isLast && (
+                                        <Box sx={{ width: '1px', flexGrow: 1, minHeight: '48px', backgroundColor: LINE_COLOR, mt: 0 }} />
+                                    )}
+                                </Box>
 
-                                            <Typography variant="h4" marginBottom='2rem' fontFamily={'Sans-serif'}>
-                                                Stock Dashboard
-                                            </Typography>
-
-                                            <Typography sx={{ mt: 2, fontFamily:'lora-regular', fontSize:19 }}>
-                                                <span style={{ fontWeight: 550}}>Description: </span>The Stock Dashboard is a web application designed to provide users with real-time stock data visualization and analysis. Developed using the Streamlit framework, this Python-based tool allows users to track stock performance, compare different stocks, and gain insights into market trends.
-                                            </Typography>
-                                            <br />
-
-                                            <Typography sx={{ mt: 2, fontFamily:'lora-regular', fontSize:19 }}>
-                                                <span style={{ fontWeight: 550}}>Technical Implementation</span>
-                                            </Typography>
-
-                                            <Typography sx={{ mt: 2, fontFamily:'lora-regular', marginTop: -.01, fontSize:19 }}>
-                                            • <span style={{fontWeight: 550}}>Real-Time Data Retrieval:</span> Utilized yfinance to fetch up-to-date stock market data for specified tickers
-                                            </Typography>
-                                            <Typography sx={{ mt: 2, fontFamily:'lora-regular', marginTop: -.01, fontSize:19 }}>
-                                            • <span style={{fontWeight: 550}}>Data Visualization:</span> Employed plotly to create dynamic, interactive charts showcasing stock price movements and trends
-                                            </Typography>
-                                            <Typography sx={{ mt: 2, fontFamily:'lora-regular', marginTop: -.01, fontSize:19}}>
-                                            • <span style={{fontWeight: 550}}>User Interface:</span> Implemented user-friendly input fields for stock tickers, date ranges, and comparison options
-                                            </Typography>
-                                            <Typography sx={{ mt: 2, fontFamily:'lora-regular', marginTop: -.01, fontSize:19}}>
-                                            • <span style={{fontWeight: 550}}>Customization:</span> Optimized Streamlit layout and styling for responsive and efficient user interaction
-                                            </Typography>
-                                            
-                                            <br />
-                                            
-
-                                            <Typography sx={{ mt: 2, fontFamily:'lora-regular', fontSize:19 }}>
-                                                <span style={{ fontWeight: 550}}>Key Technologies</span>
-                                            </Typography>
-                                            
-                                            <Typography sx={{ mt: 2, fontFamily:'lora-regular', marginTop: -.01, fontSize:19}}>
-                                            • <span style={{fontWeight: 550}}>Programming Languages:</span> Python
-                                            </Typography>
-                                            <Typography sx={{ mt: 2, fontFamily:'lora-regular', marginTop: -.01, fontSize:19}}>
-                                            • <span style={{fontWeight: 550}}>Frameworks:</span> Streamlit
-                                            </Typography>
-                                            <Typography sx={{ mt: 2, fontFamily:'lora-regular', marginTop: -.01, fontSize:19}}>
-                                            • <span style={{fontWeight: 550}}>Libraries:</span> yfinance, plotly, pandas
-                                            </Typography>
-
-                                            {/* Close button for Typing Evaluator Modal*/}
-                                            <Box sx={{ mt: 'auto', display: 'flex', justifyContent: 'flex-end' }}>
-                                            <Button
-                                            variant="outlined"
-                                            sx={{
-                                                borderColor: '#000',  // Customize the border color
-                                                color: '#000',        // Customize the text color
-                                                borderRadius: 4,      // Rounded corners
-                                                padding: '8px 16px', // Padding for the button
-                                                textTransform: 'none',// Keep text casing as is
-                                                borderWidth: 2,       // Border width
-                                                marginTop: 2,
-                                                marginBottom: -2,
-                                                
-                                                '&:hover': {
-                                                    borderWidth: 2,
-                                                    borderColor: '#000',
-                                                    backgroundColor: 'rgba(0, 0, 0, 0.1)', // Slight background color on hover
-                                                },
-                                            }}
-                                            onClick={handleCloseTyping}>Close</Button> {/* Close button */}
-                                            </Box>
-
-                                        </Box>
-                                    </Modal>
-
-
-
-                                    {/* BudgetBro Project */}
-                                    <Typography variant="h6" color="black" fontFamily={'lora-regular'} textAlign={'center'} paddingBottom={1} paddingTop={4}>
-                                        <span style={{ fontWeight: 550 }}>BudgetBro</span>: Developed 'Budget Bro' app in Python for expense tracking and financial management.
-                                    </Typography>
-
-                                    <Box sx={{
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    width: '100%',
-                                    paddingBottom: 3,
-                                    textDecoration: 'none',
-                                    }}>
-                                        <Button
-                                            variant="outlined"
-                                            endIcon={<ArrowOutwardIcon />}
-                                            sx={{
-                                                borderColor: '#000',  // Customize the border color
-                                                color: '#000',        // Customize the text color
-                                                borderRadius: 4,      // Rounded corners
-                                                padding: '10px 20px', // Padding for the button
-                                                textTransform: 'none',// Keep text casing as is
-                                                borderWidth: 2,       // Border width
-                                                '&:hover': {
-                                                    borderWidth: 2,
-                                                    borderColor: '#000',
-                                                    backgroundColor: 'rgba(0, 0, 0, 0.1)', // Slight background color on hover
-                                                },
-                                            }}
-                                            onClick={handleOpenBudget}
-                                            >
-                                            Learn More
-                                        </Button>
+                                {/* Right: company + location */}
+                                <Box sx={{
+                                    flex: 1,
+                                    pl: 3,
+                                    pt: '10px',
+                                    pb: isLast ? 0 : '48px',
+                                }}>
+                                    {/* Mobile only: role + date */}
+                                    <Box sx={{ display: { xs: 'block', md: 'none' }, mb: 1.5 }}>
+                                        <Typography sx={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: '1rem', color: 'rgba(255,255,255,0.88)' }}>
+                                            {job.role}
+                                        </Typography>
+                                        <Typography sx={{ fontFamily: 'Inter, sans-serif', fontSize: '0.85rem', color: 'rgba(255,255,255,0.4)', mt: 0.5 }}>
+                                            {job.date}
+                                        </Typography>
+                                        <Box sx={{ width: 36, height: '1px', backgroundColor: LINE_COLOR, my: 1.5 }} />
                                     </Box>
-                                    
-                                    {/* Modal for BudgetBro Project */}
-                                    <Modal
-                                        open={openBudget}
-                                        onClose={handleCloseBudget} // Close the modal when the close button is clicked
-                                        aria-labelledby="modal-modal-title"
-                                        aria-describedby="modal-modal-description"
-                                    >
-                                        <Box sx={{
-                                            position: 'absolute',
-                                            top: '50%',
-                                            left: '50%',
-                                            transform: 'translate(-50%, -50%)',
-                                            width: { xs: '85%', sm: '75%', md: '70%', lg: '80%' },
-                                            maxHeight: '80vh',
-                                            overflowY: 'auto',
-                                            bgcolor: 'background.paper',
-                                            border: '2px solid #000',
-                                            boxShadow: 24,
-                                            p: { xs: 2, sm: 5, md: 5 },
-                                            pb: {xs: 5},
-                                            pt: {xs: 5},
-                                            
-                                            
-                                        }}>
-
-                                            <Typography variant="h4" marginBottom='2rem' fontFamily={'Sans-serif'}>
-                                                BudgetBro
-                                            </Typography>
-
-                                            <Typography sx={{ mt: 2, fontFamily:'lora-regular', fontSize:19 }}>
-                                                <span style={{ fontWeight: 550}}>Description: </span>BudgetBro is a desktop application designed to help users manage their personal finances effectively. Utilizing the Tkinter library for the graphical user interface (GUI), this Python-based tool allows users to track their expenses, maintain a budget, and receive personalized budget advice.
-                                            </Typography>
-                                            <br />
-
-                                            <Typography sx={{ mt: 2, fontFamily:'lora-regular', fontSize:19 }}>
-                                                <span style={{ fontWeight: 550}}>Technical Implementation</span>
-                                            </Typography>
-
-                                            <Typography sx={{ mt: 2, fontFamily:'lora-regular', marginTop: -.01, fontSize:19 }}>
-                                            • <span style={{fontWeight: 550}}>Data Visualization:</span> Matplotlib is used to create pie charts representing the user's expense distribution
-                                            </Typography>
-                                            <Typography sx={{ mt: 2, fontFamily:'lora-regular', marginTop: -.01, fontSize:19 }}>
-                                            • <span style={{fontWeight: 550}}>GUI:</span> Developed using Tkinter for a responsive and interactive user interface
-                                            </Typography>
-                                            <Typography sx={{ mt: 2, fontFamily:'lora-regular', marginTop: -.01, fontSize:19}}>
-                                            • <span style={{fontWeight: 550}}>Real-Time Updates:</span> The application updates the UI in real-time to reflect changes in balances and expenses
-                                            </Typography>
-                                            <Typography sx={{ mt: 2, fontFamily:'lora-regular', marginTop: -.01, fontSize:19}}>
-                                            • <span style={{fontWeight: 550}}>Image Handling:</span> Uses PIL (Pillow) to download, resize, and display images within the application
-                                            </Typography>
-                                    
-                                            <br />
-                                            
-
-                                            <Typography sx={{ mt: 2, fontFamily:'lora-regular', fontSize:19 }}>
-                                                <span style={{ fontWeight: 550}}>Key Technologies</span>
-                                            </Typography>
-                                            
-                                            <Typography sx={{ mt: 2, fontFamily:'lora-regular', marginTop: -.01, fontSize:19}}>
-                                            • <span style={{fontWeight: 550}}>Programming Languages:</span> Python
-                                            </Typography>
-                                            <Typography sx={{ mt: 2, fontFamily:'lora-regular', marginTop: -.01, fontSize:19}}>
-                                            • <span style={{fontWeight: 550}}>Libraries:</span> Tkinter, PIL (Pillow), Requests, Matplotlib
-                                            </Typography>
-
-                                            {/* Close button for BudgetBro Modal*/}
-                                            <Box sx={{ mt: 'auto', display: 'flex', justifyContent: 'flex-end' }}>
-                                            <Button
-                                            variant="outlined"
-                                            sx={{
-                                                borderColor: '#000',  // Customize the border color
-                                                color: '#000',        // Customize the text color
-                                                borderRadius: 4,      // Rounded corners
-                                                padding: '8px 16px', // Padding for the button
-                                                textTransform: 'none',// Keep text casing as is
-                                                borderWidth: 2,       // Border width
-                                                marginTop: 2,
-                                                marginBottom: -2,
-                                                
-                                                '&:hover': {
-                                                    borderWidth: 2,
-                                                    borderColor: '#000',
-                                                    backgroundColor: 'rgba(0, 0, 0, 0.1)', // Slight background color on hover
-                                                },
-                                            }}
-                                            onClick={handleCloseBudget}>Close</Button> {/* Close button */}
-                                            </Box>
-
-                                        </Box>
-                                    </Modal>
-                                    
-                                    
-                                </Grid>
-                            </CardContent>
-                        </Box>
-                    </Card>
-                </Grid>
-
-
-                {/* Card 4 */}
-                <Grid item xs={12} sx={{ display: 'flex' }}>
-                        <Card sx={{
-                            flex: 1,
-                            display: 'flex',
-                            flexDirection: 'column',
-                            borderRadius: 6,
-                            boxShadow: '0px 0px 0px 0px',
-                            backgroundColor: 'white',
-                            marginTop: -3,
-                            
-                        }}>
-                            <Box sx={{
-                                flex: 1,
-                                display: 'flex',
-                                flexDirection: 'column',
-                                alignItems: 'center',
-                                justifyContent: 'flex-start',
-                                padding: 3,
-                            }}>
-                                <CardContent sx={{ width: '100%' }}>
-                                    <Typography gutterBottom variant="h4" component="div" sx={{
-                                        fontFamily: 'Sans-serif',
-                                        fontWeight: 550,
-                                        color: 'black',
-                                        textAlign: 'center',
-                                        fontSize: '3rem',
-                                        paddingBottom: 1
-                                    }}>
-                                        Technical Skills
+                                    <Typography sx={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: '1rem', color: ACCENT }}>
+                                        {job.company}
                                     </Typography>
-                                    
-                                            <Typography variant="h6" color="black" fontFamily={'lora-regular'} textAlign={'center'} paddingBottom={1}>
-                                                <span style={{ fontWeight: 550}}>Languages:</span> Python, C/C++, JavaScript(ReactJS), HTML, CSS <br />
-                                            </Typography>
+                                    <Typography sx={{ fontFamily: 'Inter, sans-serif', fontSize: '0.85rem', color: 'rgba(255,255,255,0.4)', mt: 0.4 }}>
+                                        {job.location}
+                                    </Typography>
+                                </Box>
 
-                                            <Typography variant="h6" color="black" fontFamily={'lora-regular'} textAlign={'center'} paddingBottom={2}>
-                                                <span style={{ fontWeight: 550 }}>Professional Tools:</span> Git, Github, Visual Studio Code<br /> 
-                                            </Typography>
-
-                                </CardContent>
                             </Box>
-                        </Card>
-                    </Grid>
+                        );
+                    })}
+                </Box>
+            </Box>
 
-            </Grid>
+            {/* ── CONTACT ── */}
+            <Box sx={{
+                ...darkSection,
+                backgroundColor: '#1c1c1c',
+                minHeight: '100vh',
+                px: { xs: 5, sm: 6, md: '10%' },
+                py: { xs: 8, md: 0 },
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxSizing: 'border-box',
+            }}>
+                <Typography sx={{
+                    fontFamily: 'Inter, sans-serif',
+                    fontSize: '0.85rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.2em',
+                    color: ACCENT,
+                    textTransform: 'uppercase',
+                    mb: 1.5,
+                }}>
+                    Contact
+                </Typography>
+                <Typography sx={{
+                    fontFamily: 'Inter, sans-serif',
+                    fontWeight: 700,
+                    fontSize: { xs: '1.8rem', md: '2.5rem' },
+                    color: 'white',
+                    mb: 6,
+                    textAlign: 'center',
+                }}>
+                    Let's Connect
+                </Typography>
+
+                <Box sx={{
+                    display: 'flex',
+                    flexDirection: { xs: 'column', sm: 'row' },
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    gap: { xs: 5, sm: 6, md: 10, lg: 14 },
+                    mb: 7,
+                    width: '100%',
+                }}>
+                    {[
+                        { icon: <LocalPhoneIcon sx={{ fontSize: 36, color: ACCENT }} />, label: 'Call', sub: '(913) 260-1614', action: handlePhoneClick },
+                        { icon: <EmailIcon sx={{ fontSize: 36, color: ACCENT }} />, label: 'Email', sub: 'qwestrope1313@gmail.com', action: handleEmailClick },
+                        { icon: <LinkedInIcon sx={{ fontSize: 36, color: ACCENT }} />, label: 'LinkedIn', sub: 'Quinn Westrope', action: handleLinkedClick },
+                    ].map(({ icon, label, sub, action }) => (
+                        <Box key={label} onClick={action} sx={{
+                            cursor: 'pointer', textAlign: 'center',
+                            '&:hover': { opacity: 0.7 }, transition: 'opacity 0.2s',
+                            py: { xs: 1, sm: 0 },
+                        }}>
+                            {icon}
+                            <Typography sx={{ color: 'white', fontFamily: 'Inter, sans-serif', fontWeight: 600, mt: 1 }}>{label}</Typography>
+                            <Typography sx={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'Inter, sans-serif', fontSize: '0.88rem', mt: 0.25 }}>{sub}</Typography>
+                        </Box>
+                    ))}
+                </Box>
+
+                <Button
+                    variant="outlined"
+                    startIcon={<PictureAsPdfIcon />}
+                    onClick={handleResumeClick}
+                    sx={{
+                        color: 'white',
+                        borderColor: 'rgba(255,255,255,0.3)',
+                        borderWidth: 1.5,
+                        borderRadius: 3,
+                        px: 3.5, py: 1.1,
+                        textTransform: 'none',
+                        fontFamily: 'Inter, sans-serif',
+                        fontSize: '0.95rem',
+                        '&:hover': { borderColor: ACCENT, color: ACCENT, backgroundColor: 'transparent', borderWidth: 1.5 },
+                    }}
+                >
+                    View Resume
+                </Button>
+
+                <Typography sx={{
+                    color: 'rgba(255,255,255,0.2)',
+                    fontSize: '0.75rem',
+                    fontFamily: 'Inter, sans-serif',
+                    mt: 10,
+                    textAlign: 'center',
+                }}>
+                    © 2025 Quinn Westrope
+                </Typography>
+            </Box>
+
         </Box>
-
-        {/* Footer */}
-        <Footer />
-
-        
-      </Box>
     );
-  }
-  
-  export default ActionAreaCard;
+};
+
+export default ActionAreaCard;

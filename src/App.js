@@ -1,5 +1,4 @@
 import './App.css';
-import MediaCard from './components/MediaCard';
 import ActionAreaCard from './components/cards';
 
 function App() {
