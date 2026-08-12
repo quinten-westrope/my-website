@@ -1,12 +1,19 @@
 import './App.css';
-import ActionAreaCard from './components/cards';
+import { Routes, Route } from 'react-router-dom';
+import Home from './components/cards';
+import Nav from './components/Nav';
+import BlogIndex from './pages/BlogIndex';
+import BlogPost from './pages/BlogPost';
 
 function App() {
   return (
     <div className="App">
-      
-      <ActionAreaCard />
-
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/journal" element={<BlogIndex />} />
+        <Route path="/journal/:slug" element={<BlogPost />} />
+      </Routes>
     </div>
   );
 }
